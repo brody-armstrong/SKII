@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SKII Programming Language</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        h1 {
+            margin: 0;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+        }
+        code {
+            display: block;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .level {
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to SKII Programming Language</h1>
+    <p>A skiing-inspired language for all coding levels!</p>
+</header>
+
+<section>
+    <h2>Introduction</h2>
+    <p>SKII is a fun programming language designed to help you progress from beginner to advanced coding concepts using ski-related terminology. The language is divided into three levels: GREEN, BLUE, and BLACK DIAMOND.</p>
+</section>
+
+<section>
+    <h2>GREEN Level Grammar</h2>
+    <p>The GREEN level is for beginners, where you start learning basic commands like printing and assigning variables.</p>
+    <div class="level">
+        <h3>Example:</h3>
+        <code>
+SKII GREEN {
+    lodge speed as 10;
+    snow(traverse speed to 20);
+}
+        </code>
+        <p>In this example:</p>
+        <ul>
+            <li><strong>lodge</strong>: declares a variable.</li>
+            <li><strong>snow</strong>: prints the result.</li>
+            <li><strong>traverse</strong>: adds two values.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>BLUE Level Grammar</h2>
+    <p>The BLUE level introduces more advanced features like loops, conditionals, and lists.</p>
+    <div class="level">
+        <h3>Example:</h3>
+        <code>
+SKII BLUE {
+    slope(descend base 0 from summit 100) {
+        snow(lodge speed as 10);
+    }
+    apres step 0 to summit 100 by 10 {
+        snow(traverse speed to step);
+    }
+}
+        </code>
+        <p>In this example:</p>
+        <ul>
+            <li><strong>slope</strong>: a while loop.</li>
+            <li><strong>apres</strong>: a for loop with a start, end, and step.</li>
+            <li><strong>snow</strong>: prints the result.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>BLACK DIAMOND Level Grammar</h2>
+    <p>The BLACK DIAMOND level is for advanced programmers, with features like classes, recursion, and error handling.</p>
+    <div class="level">
+        <h3>Example:</h3>
+        <code>
+SKII BLACK DIAMOND {
+    steez Snowboard {
+        ~frontside speed() {
+            snow(lodge speed as 20);
+        }
+    }
+}
+        </code>
+        <p>In this example:</p>
+        <ul>
+            <li><strong>steez</strong>: defines a class.</li>
+            <li><strong>~frontside</strong>: defines a public method.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 SKII Programming Language. All rights reserved.</p>
+    <p>Check out the full project on <a href="https://github.com/brody-armstrong/SKII" target="_blank">GitHub</a>!</p>
+    <a href="https://github.com/brody-armstrong/SKII" class="btn" target="_blank">Go to GitHub</a>
+</footer>
+
+</body>
+</html>
