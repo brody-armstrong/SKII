@@ -1,0 +1,197 @@
+Program:
+    blocks*=Block
+;
+
+Block:
+    GreenBlock | BlueBlock | BlackDiamondBlock
+;
+
+// GREEN LEVEL GRAMMAR
+GreenBlock:
+    'SKII' 'GREEN' '{'
+    commands*=GreenCommand
+    '}'
+;
+
+GreenCommand:
+    VariableDeclaration |
+    PrintStatement
+;
+
+Expression:
+    AdditionOperation |
+    SubtractionOperation |
+    MultiplicationOperation |
+    DivisionOperation |
+    ValueLiteral
+;
+
+AdditionOperation:
+    'traverse' left=Expression 'to' right=Expression
+;
+
+SubtractionOperation:
+    'descend' left=Expression 'from' right=Expression
+;
+
+MultiplicationOperation:
+    'lift' left=Expression 'by' right=Expression
+;
+
+DivisionOperation:
+    'carve' left=Expression 'into' right=Expression
+;
+
+ValueLiteral:
+    INT | STRING | ID
+;
+
+VariableDeclaration:
+    'lodge' name=ID 'as' value=Expression
+;
+
+PrintStatement:
+    'snow' '(' expression=Expression ')'
+;
+
+// BLUE LEVEL GRAMMAR
+BlueBlock:
+    'SKII' 'BLUE' '{'
+    commands*=BlueBlockCommand
+    '}'
+;
+
+BlueBlockCommand:
+    GreenCommand |
+    WhileLoop |
+    ForLoop |
+    IfStatement |
+    ListDeclaration |
+    DictionaryDeclaration
+;
+
+WhileLoop:
+    'slope' '(' condition=Condition ')' '{'
+    body*=GreenCommand
+    '}'
+;
+
+ForLoop:
+    'apres' name=ID '(base:' start=Expression ', summit:' end=Expression ', step:' step=Expression ')' '{'
+    body*=GreenCommand
+    '}'
+;
+
+IfStatement:
+    'trail' '(' condition=Condition ')' 
+    primary_body*=GreenCommand
+    'jump' '{'
+    alternative_body*=GreenCommand
+    '}' 
+    'yew'
+;
+
+ListDeclaration:
+    'mogul' name=ID '=' '[' elements*=Expression[','] ']'
+;
+
+DictionaryDeclaration:
+    'glacier' name=ID '=' '{' 
+    (entries*=DictionaryEntry[','])?
+    '}'
+;
+
+DictionaryEntry:
+    key=Expression ':' value=Expression
+;
+
+// BLACK DIAMOND LEVEL GRAMMAR
+BlackDiamondBlock:
+    'SKII' 'BLACK' 'DIAMOND' '{'
+    commands*=BlackDiamondBlockCommand
+    '}'
+;
+
+BlackDiamondBlockCommand:
+    GreenCommand |
+    BlueBlockCommand |
+    ClassDefinition |
+    ErrorHandling |
+    RecursiveFunction |
+    NestedLoop |
+    AdvancedControlStructure
+;
+
+ClassDefinition:
+    'steez' name=ID '{'
+    members*=ClassMember
+    '}'
+;
+
+ClassMember:
+    PublicMethod |
+    PrivateMethod |
+    FunctionDeclaration |
+    NestedLoop |
+    RecursiveFunction
+;
+
+PublicMethod:
+    '~frontside' name=ID '(' parameters*=ID[',']? ')' '{'
+    body*=GreenCommand | BlueBlockCommand
+    '}'
+;
+
+PrivateMethod:
+    'backside~' name=ID '(' ')' '{'
+    body*=GreenCommand
+    '}'
+;
+
+FunctionDeclaration:
+    'bluebird*' name=ID '(' ')' '{'
+    body*=GreenCommand
+    'return' return_value=Expression
+    'yew'
+    '}'
+;
+
+NestedLoop:
+    'pow' '{'
+    outer_loop=WhileLoop
+    inner_loop=WhileLoop
+    '}'
+;
+
+RecursiveFunction:
+    'avalanche' name=ID '(' ')' '{'
+    body*=GreenCommand
+    'avalanche' '(' ')'
+    'yew'
+;
+
+ErrorHandling:
+    'crevasse' '{'
+    try_body*=GreenCommand
+    '}'
+    'rescue' '(' exception=ID ')' '{'
+    catch_body*=GreenCommand
+    '}'
+;
+
+AdvancedControlStructure:
+    'pow' '{'
+    outer_loop=WhileLoop
+    inner_body*=GreenCommand
+    '}'
+;
+
+ID: /[a-zA-Z_][a-zA-Z0-9_]*/;
+INT: /[0-9]+/;
+STRING: /".*?"|'.*?'/;
+
+OP: '->' | '<-' | '||' | 'X=' | '->>' | '<<-' ;
+
+Condition:
+    left=Expression op=OP right=Expression
+;
