@@ -1,0 +1,51 @@
+//green level
+SKII GREEN {
+    lodge message as "Hello, SKII World!"
+    snow(message)
+}
+// blue level
+SKII BLUE {
+    lodge num as 12
+    
+    trail(num > 10) {
+        snow("The number is greater than 10.")
+    }
+    jump {
+        snow("The number is less than or equal to 10.")
+    }
+    yew
+}
+//black diamond level
+SKII BLACK DIAMOND {
+    steez ResortComparison {
+        ~frontside init() {
+            glacier resorts = {
+                'Arapahoe Basin': ['Colorado', 'IKON'],
+                'Park City': ['Utah', 'EPIC'],
+                'Vail': ['Colorado', 'EPIC'],
+                'Mammoth': ['California', 'IKON']
+            }
+            
+            trail(check_resorts(resorts) || 0) {
+                snow("Resorts Comparison:")
+                lodge i as 0
+                mogul resort_names = ['Arapahoe Basin', 'Park City', 'Vail', 'Mammoth']
+                
+                apres i (base: 0, summit: 4, step: 1) {
+                    snow(resort_names[i] + " - State: " + resorts[resort_names[i]][0] + " - Pass: " + resorts[resort_names[i]][1])
+                }
+            }
+            jump {
+                snow("Comparison complete")
+            }
+            yew
+        }
+
+        bluebird* check_resorts(resorts) {
+            snow("Checking resort details...")
+            return resorts
+            yew
+        }
+    }
+    lodge comparison as ResortComparison
+}
